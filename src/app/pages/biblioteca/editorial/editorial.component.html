@@ -1,1 +1,11 @@
-<p>editorial works!</p>
+{{editorialForm.value | jsonriver }}
+
+<form [formGroup]="editorialForm">
+        <br><b> Codigo</b> 
+        <br><input type="text" formControlName="code" name="code" />
+        <br><br><b> Descripción</b> 
+        <br><input type="text" formControlName="description" name="description"/>
+        <br><br><b> Pais</b> 
+        <br><input type="text" formControlName="country" name="country"/>
+        <br><br><button type="button" class="btn btn-success" [disabled]="editorialForm.invalid"  (click)="SaveForm()">Enviar </button> 
+</form>        

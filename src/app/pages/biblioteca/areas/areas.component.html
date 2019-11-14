@@ -1,1 +1,9 @@
-<p>areas works!</p>
+{{areaForm.value | json }}
+
+<form [formGroup]="areaForm">
+        <br><b> Codigo</b> 
+        <br><input type="text" formControlName="code" name="code" />
+        <br><br><b> Descripción</b> 
+        <br><input type="text" formControlName="description" name="description"/>
+        <br><br><button type="button" class="btn btn-success" [disabled]="areaForm.invalid"  (click)="SaveForm()">Enviar </button> 
+</form>      

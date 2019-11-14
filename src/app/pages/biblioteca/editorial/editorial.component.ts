@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editorial',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorialComponent implements OnInit {
 
-  constructor() { }
+  public editorialForm: FormGroup;
+
+  constructor(protected fb:FormBuilder) {
+    this.createForm();
+   }
 
   ngOnInit() {
+  }
+  
+  createForm(){
+    this.editorialForm = this.fb.group({
+      code: ["",[Validators.required,Validators.maxLength(5)]],
+      description: ["",[Validators.required]],
+      country: ["",[Validators.required]]
+     
+    })  
+    
   }
 
 }
